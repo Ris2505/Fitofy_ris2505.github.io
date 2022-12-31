@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="sketchfab-embed-wrapper"> <iframe title="Extra Chocolate Marshmallow Cupcake" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay=1; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/43b8a378e7a74898855fe0075215aa48/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/extra-chocolate-marshmallow-cupcake-43b8a378e7a74898855fe0075215aa48?utm_medium=embed&utm_campaign=share-popup&utm_content=43b8a378e7a74898855fe0075215aa48" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Extra Chocolate Marshmallow Cupcake </a> by <a href="https://sketchfab.com/jtressle?utm_medium=embed&utm_campaign=share-popup&utm_content=43b8a378e7a74898855fe0075215aa48" target="_blank" style="font-weight: bold; color: #1CAAD9;"> jtressle </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=43b8a378e7a74898855fe0075215aa48" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+    
+
+
+        <script src="three.min.js"></script>
+        <script src="GLTFLoader.js"></script>
+        <script src="OrbitControls.js"></script>
+        <script>
+           
+           const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
+camera.position.z = 1;
+
+const scene = new THREE.Scene();
+
+const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+const material = new THREE.MeshNormalMaterial();
+
+const mesh = new THREE.Mesh( geometry, material );
+scene.add( mesh );
+
+const renderer = new THREE.WebGLRenderer( { antialias: true } );
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setAnimationLoop( animation );
+document.body.appendChild( renderer.domElement );
+
+// animation
+
+function animation( time ) {
+
+	mesh.rotation.x = time / 2000;
+	mesh.rotation.y = time / 1000;
+
+	renderer.render( scene, camera );
+
+}
+        </script>
+    
+</body>
+</html>
